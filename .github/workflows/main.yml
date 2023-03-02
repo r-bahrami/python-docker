@@ -13,12 +13,8 @@ jobs:
         name: Checkout
         uses: actions/checkout@v3
       -
-        name: Build and push
-        uses: docker/build-push-action@v4
-        with:
-          context: .
-          file: ./Dockerfile
-          push: true
+        name: Build Docker image
+        run: docker build . --file Dockerfile --tag local
       - 
-        name: Run tests
+        name: Run test file(s)
         run: py-docker python3 hello-py-docker.py
