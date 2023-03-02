@@ -17,4 +17,4 @@ jobs:
         run: docker build . --file Dockerfile --tag local
       - 
         name: Run test file(s)
-        run: py-docker python3 hello-py-docker.py
+        run: docker run local python3 hello-py-docker.py
